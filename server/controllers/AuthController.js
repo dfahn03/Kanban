@@ -71,7 +71,7 @@ export default class AuthController {
             let user = await _repo.findOne({ _id: req.session.uid })
             if (!user) {
                 return res.status(401).send({
-                    error: 'Please login to continue'
+                    error: 'Please Login to Continue'
                 })
             }
             delete user._doc.hash
