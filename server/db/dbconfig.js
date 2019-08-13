@@ -1,8 +1,8 @@
 //THIS FILE STAYS BASICALLY THE SAME
 import mongoose from 'mongoose'
 
-//THIS STRING WILL CHANGE SLIGHTLY
-const connectionString = "mongodb://student:student123@cluster0-shard-00-00-07ffa.mongodb.net:27017,cluster0-shard-00-01-07ffa.mongodb.net:27017,cluster0-shard-00-02-07ffa.mongodb.net:27017/kanban?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority"
+//THIS STRING WILL CHANGE SLIGHTLY DEPENDING ON DB
+const connectionString = "mongodb://student:student333@kanban-shard-00-00-mmkqw.azure.mongodb.net:27017,kanban-shard-00-01-mmkqw.azure.mongodb.net:27017,kanban-shard-00-02-mmkqw.azure.mongodb.net:27017/test?ssl=true&replicaSet=Kanban-shard-0&authSource=admin&retryWrites=true&w=majority"
 
 let connection = mongoose.connection
 

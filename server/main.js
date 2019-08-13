@@ -20,7 +20,7 @@ var corsOptions = {
 };
 server.use(cors(corsOptions))
 
-//Fire up database connection
+//Fires up database connection
 require('./db/dbconfig')
 
 
@@ -30,7 +30,7 @@ server.use(bp.urlencoded({
   extended: true
 }))
 
-//REGISTER YOUR SESSION, OTHERWISE YOU WILL NEVER GET LOGGED IN
+//REGISTER SESSIONS
 import Session from "./middlewear/session"
 import AuthController from './controllers/AuthController'
 
@@ -39,7 +39,7 @@ server.use('/auth', new AuthController().router)
 
 
 
-//YOUR ROUTES HERE!!!!!!
+//ROUTES HERE!!!!!!
 import BoardController from './controllers/BoardController'
 import ListController from "./controllers/ListController"
 import TaskController from "./controllers/TaskController"

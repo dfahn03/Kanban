@@ -87,6 +87,8 @@
     <div class="row">
       <list class="col-4" v-for="list in lists" :key="list._id" :listData="list" />
     </div>
+    <!-- TODO - Add Sockets to the project so any collaborator gets instant feedback when users modify a board -->
+
   </div>
 </template>
 
