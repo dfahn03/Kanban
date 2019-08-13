@@ -14,14 +14,22 @@
               <button type="submit" class="btn btn-success mt-1">Login</button>
             </form>
             <form v-else @submit.prevent="register">
-              <input type="text" v-model="newUser.name" placeholder="Name" class="text-center">
-              <input type="email" v-model="newUser.email" placeholder="Email" class="text-center">
-              <input type="password" v-model="newUser.password" placeholder="Password" class="text-center">
-              <button type="submit" class="btn btn-success mt-1">Create Account</button>
+              <div class="form-row justify-content-center">
+                <input type="text" v-model="newUser.name" placeholder="Name" class="text-center">
+              </div>
+              <div class="form-row justify-content-center">
+                <input type="email" v-model="newUser.email" placeholder="Email" class="text-center mt-1">
+              </div>
+              <div class="form-row justify-content-center">
+                <input type="password" v-model="newUser.password" placeholder="Password" class="text-center mt-1">
+              </div>
+              <div class="form-row justify-content-center">
+                <button type="submit" class="btn btn-success mt-1">Create Account</button>
+              </div>
             </form>
             <div class="action mr-2" @click="loginForm = !loginForm">
-              <p v-if="loginForm" class="mt-2">No account? Click here to Register</p>
-              <p v-else>Already have an account? Click here to Login</p>
+              <p v-if="loginForm" class="reg-text mt-3">No Account? Click to Register</p>
+              <p v-else class="reg-log-text mt-1">Have Account? Click to Login!</p>
             </div>
           </div>
         </div>
@@ -69,13 +77,17 @@
     height: 100vh;
   }
 
-  .login-bg {
+  .login {
+    max-width: 100vw;
+    min-height: 100vh;
     background-image: url("../assets/login-2.jpg");
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
   }
 
   .login-row {
@@ -91,6 +103,12 @@
 
   .login-inputs {
     max-width: 100%;
+  }
+
+  .card-title {
+    font-family: 'Kalam', cursive;
+    font-size: 2rem;
+    margin-bottom: .2rem;
   }
 
   .card-img {
@@ -110,5 +128,11 @@
     border: none;
     height: 38vh;
     background-color: transparent;
+  }
+
+  .reg-log-text:hover,
+  .reg-text:hover {
+    cursor: pointer;
+    color: blue;
   }
 </style>
