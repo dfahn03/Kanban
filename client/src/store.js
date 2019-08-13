@@ -66,7 +66,7 @@ export default new Vuex.Store({
           }
         })
         .catch(res => {
-          router.push({ name: 'login' })
+          router.push({ name: 'Login' })
         })
     },
     login({ commit, dispatch }, creds) {
@@ -80,7 +80,7 @@ export default new Vuex.Store({
     async logout({ commit, dispatch }) {
       await auth.delete('logout')
       commit('setUser', {})
-      router.push({ name: 'login' })
+      router.push({ name: 'Login' })
     },
 
     async getUserByName({ commit, dispatch }, payload) {
@@ -88,7 +88,7 @@ export default new Vuex.Store({
         let res = await auth.get(payload.name)
         payload.sharedIds.push(res.data[0]._id)
         dispatch('editBoard', payload)
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
     //#endregion
 
@@ -105,14 +105,14 @@ export default new Vuex.Store({
       try {
         let res = await api.get('boards/shared')
         commit('setSharedBoards', res.data)
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
 
     async getBoardById({ commit, dispatch }, boardId) {
       try {
         let res = await api.get('boards/' + boardId)
         commit('setActiveBoard', res.data)
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
 
     addBoard({ commit, dispatch }, boardData) {
@@ -129,11 +129,10 @@ export default new Vuex.Store({
     },
 
     async editBoard({ commit, dispatch }, payload) {
-      // debugger
       try {
         await api.put('boards/' + payload._id, payload)
         dispatch('getBoards')
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
     //#endregion
 
@@ -142,13 +141,13 @@ export default new Vuex.Store({
       try {
         let res = await api.get('boards/' + boardId + '/lists')
         commit('setLists', res.data)
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
     async addList({ commit, dispatch }, newList) {
       try {
         await api.post('lists', newList)
         dispatch('getLists', newList.boardId)
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
     deleteList({ commit, dispatch }, payload) {
       api.delete('lists/' + payload._id)
@@ -160,7 +159,7 @@ export default new Vuex.Store({
       try {
         await api.put('lists/' + payload._id, payload)
         dispatch('getLists', payload.boardId)
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
 
 
@@ -171,19 +170,19 @@ export default new Vuex.Store({
       try {
         let res = await api.get('lists/' + listId + '/tasks')
         commit('setTasks', { listId: listId, results: res.data })
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
     async addTask({ commit, dispatch }, newTask) {
       try {
         await api.post('tasks', newTask)
         dispatch('getTasks', newTask.listId)
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
     async editTask({ commit, dispatch }, payload) {
       try {
         await api.put('tasks/' + payload._id, payload)
         dispatch('getTasks', payload.listId)
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
     async moveTask({ commit, dispatch }, payload) {
       try {
@@ -192,7 +191,7 @@ export default new Vuex.Store({
         if (payload.oldListId) {
           dispatch('getTasks', payload.oldListId)
         }
-      } catch (error) { console.error(error) }
+      } catch (err) { console.error(err) }
     },
     deleteTask({ commit, dispatch }, payload) {
       api.delete('tasks/' + payload._id)

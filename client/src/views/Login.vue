@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid login login-bg">
+  <div class="container-fluid login">
     <div class="row login-row">
       <div class="col-5">
         <div class="card">
@@ -40,8 +40,9 @@
 
 <script>
   import router from '@/router.js'
+
   export default {
-    name: "login",
+    name: "Login",
     data() {
       return {
         loginForm: true,
@@ -58,7 +59,6 @@
     },
     methods: {
       register() {
-        debugger
         this.$store.dispatch("register", this.newUser);
       },
       loginUser() {

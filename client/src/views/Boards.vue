@@ -75,7 +75,7 @@
     created() {
       //blocks users not logged in
       if (!this.$store.state.user._id) {
-        this.$router.push({ name: "login" });
+        this.$router.push({ name: "Login" });
       }
     },
     computed: {

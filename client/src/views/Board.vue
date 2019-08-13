@@ -143,7 +143,6 @@
       editBoard() {
         if (!this.boardTitle) { this.boardTitle = this.board.title }
         if (!this.boardDescription) { this.boardDescription = this.board.description }
-        debugger
         let boardEdits = {
           title: this.boardTitle,
           description: this.boardDescription,
