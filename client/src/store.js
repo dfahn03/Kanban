@@ -54,15 +54,15 @@ export default new Vuex.Store({
       auth.post('register', newUser)
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'boards' })
+          router.push({ name: 'Boards' })
         })
     },
     authenticate({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
-          if (router.currentRoute.name !== 'board') {
-            router.push({ name: 'boards' })
+          if (router.currentRoute.name !== 'Board') {
+            router.push({ name: 'Boards' })
           }
         })
         .catch(res => {
@@ -73,7 +73,7 @@ export default new Vuex.Store({
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'boards' })
+          router.push({ name: 'Boards' })
         })
     },
 

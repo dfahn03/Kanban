@@ -96,7 +96,7 @@
   import List from "@/components/List.vue"
 
   export default {
-    name: "board",
+    name: "Board",
     props: ["boardId"],
     mounted() {
       this.$store.dispatch('getLists', this.boardId)

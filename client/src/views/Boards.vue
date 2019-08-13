@@ -57,7 +57,7 @@
 
 <script>
   export default {
-    name: "boards",
+    name: "Boards",
     mounted() {
       this.$store.dispatch("getBoards");
       this.$store.dispatch("getSharedBoards")
@@ -98,7 +98,7 @@
         this.$store.dispatch('logout')
       },
       openBoard(boardId) {
-        this.$router.push({ name: 'board', params: { boardId } })
+        this.$router.push({ name: 'Board', params: { boardId } })
       },
       getRandomImg() {
         let images = ['1.jpeg', '2.jpeg', '3.jpeg', '4.jpeg', '5.jpeg', '6.jpg', '7.jpeg', '8.jpg', '9.jpeg', '10.jpg', '11.jpeg', '12.jpeg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpeg', '19.jpg']
@@ -205,4 +205,4 @@
 
 
 
-/* <router-link :to="{name: 'board', params: {boardId: board._id}}"><b>{{board.title}}</b></router-link> */
+/* <router-link :to="{name: 'Board', params: {boardId: board._id}}"><b>{{board.title}}</b></router-link> */
