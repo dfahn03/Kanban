@@ -7,10 +7,13 @@
           <div class="card-img-overlay">
             <h5 class="card-title mt-1"><b>Login</b></h5>
             <form v-if="loginForm" @submit.prevent="loginUser" class="text-center">
-              <input type="email" v-model="creds.email" placeholder="Email" class="text-center login-inputs">
-              <input type="password" v-model="creds.password" placeholder="Password"
-                class="text-center mt-1 login-inputs">
-              <br>
+              <div class="form-row justify-content-center mt-2">
+                <input type="email" v-model="creds.email" placeholder="Email" class="text-center login-inputs">
+              </div>
+              <div class="form-row justify-content-center mb-2">
+                <input type="password" v-model="creds.password" placeholder="Password"
+                  class="text-center mt-1 login-inputs">
+              </div>
               <button type="submit" class="btn btn-success mt-1">Login</button>
             </form>
             <form v-else @submit.prevent="register">
