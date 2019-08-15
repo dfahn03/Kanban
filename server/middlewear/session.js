@@ -2,7 +2,7 @@ import expressSession from 'express-session'
 var mongoStore = require("connect-mongodb-session")(expressSession);
 
 var store = new mongoStore({
-    uri: "mongodb://student:student333@kanban-shard-00-00-mmkqw.azure.mongodb.net:27017,kanban-shard-00-01-mmkqw.azure.mongodb.net:27017,kanban-shard-00-02-mmkqw.azure.mongodb.net:27017/kanban?ssl=true&replicaSet=Kanban-shard-0&authSource=admin&retryWrites=true&w=majority",
+    uri: "mongodb://student:student333@kanban-shard-00-00-mmkqw.azure.mongodb.net:27017,kanban-shard-00-01-mmkqw.azure.mongodb.net:27017,kanban-shard-00-02-mmkqw.azure.mongodb.net:27017/Kanban?ssl=true&replicaSet=Kanban-shard-0&authSource=admin&retryWrites=true&w=majority",
     collection: "Sessions"
 });
 
