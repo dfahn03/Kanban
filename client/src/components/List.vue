@@ -6,9 +6,9 @@
           <div class="col-12 d-flex justify-content-center">
             <h4><b class="ml-3">{{listData.title}}</b></h4>
             <div class="dropdown">
-              <button class="btn" type="button" id="list-dropdown-menu" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false"><img src="../assets/three-dots-icon.jpg" style="height: 1.5rem;"
-                  title="Board Menu" class="board-ddown"></button>
+              <button class="btn p-0 ml-2" type="button" id="list-dropdown-menu" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><img src="../assets/three-lines-icon.png"
+                  style="height: 1.5rem;" title="Board Menu" class="board-ddown"></button>
               <div class="dropdown-menu">
                 <button class="dropdown-item" type="button" @click="showAddTaskForm = !showAddTaskForm"
                   v-if="!showAddTaskForm">Add Note</button>

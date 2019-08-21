@@ -3,19 +3,20 @@
     <div class="card border-dark mb-3 justify-content-center" style="max-width: 25rem;">
       <div class="card-header">
         <div class="row">
-          <div class="col-8">
-            <h6 class="float-right mt-1"><b>{{taskData.description}}</b></h6>
-          </div>
-          <div class="col-1">
-            <img src="../assets/icons8-add-node-20.png" alt="Add Comment" title="Add Comment"
-              @click="showAddCommentForm = !showAddCommentForm" v-if="!showAddCommentForm">
-          </div>
-          <div class="col-1">
-            <img src="../assets/icons8-compose-20.png" alt="Edit Note Icon" title="Edit Note"
-              @click="showForm = !showForm" v-if="!showForm">
-          </div>
-          <div class="col-1">
-            <img src="../assets/icons8-trash-20.png" alt="Delete Note" title="Delete Note" @click="deleteTask">
+          <div class="col-12 d-flex justify-content-center">
+            <h6 class="mt-1"><b>{{taskData.description}}</b></h6>
+            <div class="dropdown">
+              <button class="btn p-0 ml-2 align-self-top" type="button" id="task-dropdown-menu" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><img src="../assets/three-lines-icon.png"
+                  style="height: 1rem;" title="Board Menu" class="board-ddown"></button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item" type="button" @click="showAddCommentForm = !showAddCommentForm"
+                  v-if="!showAddCommentForm">Add Comment</button>
+                <button class="dropdown-item" type="button" @click="showForm = !showForm" v-if="!showForm">Edit
+                  Note</button>
+                <button class="dropdown-item" type="button" @click="deleteTask">Delete Note</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -46,7 +47,6 @@
                   alt="Delete Comment" title="Delete Comment" @click="deleteComment(comment._id)" class="ml-1 mb-1">
               </p>
             </div>
-
           </div>
         </div>
       </div>
@@ -84,18 +84,18 @@
         this.taskData.comments.push(newComment)
         this.$store.dispatch('editTask', this.taskData)
         this.content = ''
+        this.showAddCommentForm = false
       },
       deleteComment(id) {
-
         this.taskData.comments = this.taskData.comments.filter(comment => comment._id !== id)
         this.$store.dispatch('editTask', this.taskData)
-
       },
       editTask() {
         if (this.taskDescription) {
           this.taskData.description = this.taskDescription
           this.$store.dispatch('editTask', this.taskData)
           this.taskDescription = ""
+          this.showForm = false
         }
       },
       changeList(newListId) {
