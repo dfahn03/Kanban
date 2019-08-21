@@ -43,7 +43,7 @@
   .login {
     max-width: 100vw;
     min-height: 100vh;
-    background-image: url("../assets/login-4.jpg");
+    background-image: url("../assets/login-5.jpg");
     background-size: 100% 100%;
     background-position: center;
     background-attachment: fixed;
@@ -59,7 +59,7 @@
   }
 
   .card {
-    border: 1px black;
+    /* border: 1px solid black; */
     background-color: rgba(255, 255, 255, 0.726);
     min-height: max-content;
   }
@@ -75,12 +75,14 @@
   }
 
   .regBtn {
-    background-color: rgb(87, 61, 61);
-    color: #fff;
+    background-color: rgb(248, 179, 52);
+    color: black;
+    font-weight: bolder;
   }
 
   .logBtn {
-    background-color: rgb(0, 83, 0);
-    color: #fff;
+    background-color: rgb(75, 186, 255);
+    color: black;
+    font-weight: bolder;
   }
 </style>
