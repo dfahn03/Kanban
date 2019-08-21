@@ -3,21 +3,20 @@
     <div class="card border-dark mb-3" style="max-width: 30rem;">
       <div class="card-header text-center pt-4">
         <div class="row">
-          <div class="col-12">
-            <h4><b>{{listData.title}}</b></h4>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-1 offset-md-4">
-            <img src="../assets/icons8-add-property-20.png" alt="Add Note" title="Add Note"
-              @click="showAddTaskForm = !showAddTaskForm" v-if="!showAddTaskForm">
-          </div>
-          <div class="col-1">
-            <img src="../assets/icons8-compose-20.png" alt="Edit List Icon" title="Edit List"
-              @click="showForm = !showForm" v-if="!showForm">
-          </div>
-          <div class="col-1">
-            <img src="../assets/icons8-trash-20.png" alt="Delete List" title="Delete List" @click="deleteList">
+          <div class="col-12 d-flex justify-content-center">
+            <h4><b class="ml-3">{{listData.title}}</b></h4>
+            <div class="dropdown">
+              <button class="btn" type="button" id="list-dropdown-menu" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false"><img src="../assets/three-dots-icon.jpg" style="height: 1.5rem;"
+                  title="Board Menu" class="board-ddown"></button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item" type="button" @click="showAddTaskForm = !showAddTaskForm"
+                  v-if="!showAddTaskForm">Add Note</button>
+                <button class="dropdown-item" type="button" @click="showForm = !showForm" v-if="!showForm">Edit
+                  List</button>
+                <button class="dropdown-item" type="button" @click="deleteList">Delete List</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -121,6 +120,7 @@
         }
         this.$store.dispatch('addTask', newTask)
         this.description = ''
+        this.showAddTaskForm = false
       },
       deleteList() {
         this.$store.dispatch('deleteList', this.listData)
@@ -131,6 +131,7 @@
           this.listData.title = this.listTitle
           this.$store.dispatch('editList', this.listData)
           this.listTitle = ''
+          this.showForm = false
         }
       },
       handleDrop(data) {
@@ -149,7 +150,7 @@
   }
 
   .card {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.664);
     border-width: 3px;
   }
 

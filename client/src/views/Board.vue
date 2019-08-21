@@ -63,8 +63,11 @@
       <button class="btn btn-warning mr-5" @click="showAddListForm = !showAddListForm"
         v-if="showAddListForm">Cancel</button>
     </div>
-
-    <list class="col-4" v-for="list in lists" :key="list._id" :listData="list" />
+    <div class="col">
+      <div class="row">
+        <list class="col-3 mt-4" v-for="list in lists" :key="list._id" :listData="list" />
+      </div>
+    </div>
     <!-- TODO - Add Sockets to the project so any collaborator gets instant feedback when users modify a board -->
 
   </div>
@@ -119,6 +122,7 @@
         }
         this.$store.dispatch('addList', newList)
         this.title = ''
+        this.showAddListForm = false
       },
 
       editBoard() {
@@ -132,6 +136,7 @@
         this.$store.dispatch('editBoard', boardEdits)
         this.boardTitle = ""
         this.boardDescription = ""
+        this.showForm = false
       },
       userLogOut() {
         this.$store.dispatch('logout')
@@ -146,6 +151,7 @@
         this.$store.dispatch('getUserByName', sharedBoard)
 
         this.userName = ""
+        this.showAddCollabForm = false
       }
     }
   };
