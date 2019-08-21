@@ -5,8 +5,8 @@
         <h1 class="brand">de<span class="brand-mid">Note</span>vator</h1>
       </div>
       <div class="col-2 offset-md-2">
-        <span class="mr-2 user-name">@{{user.name}} </span>
-        <button class="btn btn-sm btn-danger mt-1" @click="userLogOut">Log Out</button>
+        <button class="btn btn-sm btn-danger mt-2 float-right" @click="userLogOut">Log Out</button>
+        <h6 class="user-name float-right mr-2 mt-3">@{{user.name}}</h6>
       </div>
     </div>
     <div class="row" v-show="showForm">
@@ -116,7 +116,7 @@
 
 <style>
   .boards {
-    background-image: url('../assets/boards-bg-4.jpg');
+    background-image: url('../assets/boards-bg-8.png');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -140,7 +140,7 @@
 
   .user-name {
     font-family: 'Kalam', cursive;
-    font-weight: bold;
+    font-weight: bolder;
   }
 
   .card-columns {
