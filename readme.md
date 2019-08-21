@@ -2,7 +2,7 @@
 
 ### APP Features & Functionality
 
-Kanban is a simple enough application. Users have the request to be able to create and manage boards, lists, and tasks. Tasks should also have the ability to add notes or comments.
+Users have the request to be able to create and manage boards, lists, and tasks. Tasks should also have the ability to add notes or comments.
 
 A board manages several lists. Once created lists can not be transfered between boards but they can be removed. If a list is removed, all tasks and comments on the list will be removed as well to avoid orphan data.
 
