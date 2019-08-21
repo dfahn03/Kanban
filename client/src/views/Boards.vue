@@ -5,7 +5,7 @@
         <h1 class="brand">de<span class="brand-mid">Note</span>vator</h1>
       </div>
       <div class="col-2 offset-md-2">
-        <span class="mr-2 user-name">@{{this.$store.state.user.name}} </span>
+        <span class="mr-2 user-name">@{{user.name}} </span>
         <button class="btn btn-sm btn-danger mt-1" @click="userLogOut">Log Out</button>
       </div>
     </div>
@@ -35,7 +35,9 @@
 
               <h5 @click="openBoard(board._id)" class="open-bug"><b>{{board.title}}</b></h5>
               <p @click="openBoard(board._id)" class="open-bug">{{board.description}}</p>
-              <button type="button" class="btn btn-sm btn-danger" @click="deleteBoard(board._id)">Delete</button>
+              <img src="../assets/trash-30.png" alt="Delete Board" title="Delete Board" @click="deleteBoard(board._id)"
+                class="del-board-btn">
+              <!-- <button type="button" class="btn btn-sm btn-danger" @click="deleteBoard(board._id)">Delete</button> -->
             </div>
           </div>
         </div>
@@ -84,6 +86,9 @@
       },
       sharedBoards() {
         return this.$store.state.sharedBoards
+      },
+      user() {
+        return this.$store.state.user
       }
     },
     methods: {
@@ -117,6 +122,7 @@
     -o-background-size: cover;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     min-width: 100%;
     min-height: 100%;
     font-family: 'Raleway', sans-serif;
@@ -192,6 +198,10 @@
     font-size: 20px;
     background-size: cover;
     /* padding: 16px 32px; */
+  }
+
+  .del-board-btn {
+    cursor: pointer;
   }
 
   .open-bug {
