@@ -62,11 +62,11 @@ server.use((error, req, res, next) => {
 //Catch all
 server.use('*', (req, res, next) => {
   res.status(404).send({
-    error: 'No matching routes'
+    error: 'No Matching Routes'
   })
 })
 
 
 server.listen(port, () => {
-  console.log('server running on port', port)
+  console.log('Server Running on Port', port)
 })
